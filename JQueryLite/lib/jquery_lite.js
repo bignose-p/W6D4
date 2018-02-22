@@ -105,8 +105,12 @@ window.$l = function (arg) {
   }
 };
 
-$l.extend = function (objA, objB, ...objs) {
-  
+$l.extend = function (objA, ...objs) {
+  otherObjs.forEach((obj) => {
+    for (const prop in obj) {
+      base[prop] = obj[prop];
+    }
+  });
 };
 
 $l.ajax = function (options) {
